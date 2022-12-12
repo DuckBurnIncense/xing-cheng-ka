@@ -6,12 +6,12 @@
 		<div class="main">
 			<img class="green-banner" src="@/assets/green_banner.png" alt="banner" />
 			<div class="card">
-				<p class="tel">123****8910的动态行程卡</p>
-				<p class="update-time">更新于：2022.12.12 20:04:30</p>
+				<p class="tel">{{phoneNumWithAsterisks}}的动态行程卡</p>
+				<p class="update-time">更新于：{{formattedUpdateTime}}</p>
 				<img class="green-card" src="@/assets/gif_green.gif" alt="green">
 				<p class="desc">
 					<span class="title">您于前7天内到达或途径：</span>
-					<span class="places">广西壮族自治区南宁市</span>
+					<span class="places">{{places}}</span>
 				</p>
 			</div>
 		</div>
@@ -229,5 +229,37 @@
 <script>
 	export default {
 		name: 'ResultPage',
+		data() {
+			return {
+				updateTime: 0,
+				places: '广西壮族自治区南宁市',
+				phone: '11400005140'
+			}
+		},
+		computed: {
+			phoneNumWithAsterisks() {
+				let arr = this.phone.split('');
+				const asterisk = '*';
+				arr[3] = asterisk;
+				arr[4] = asterisk;
+				arr[5] = asterisk;
+				arr[6] = asterisk;
+				return arr.join('');
+			},
+			formattedUpdateTime() {
+				const add0 = num => num > 9 ? num : '0' + num;
+				const d = new Date(this.updateTime);
+				const year = d.getFullYear(),
+					month = add0(d.getMonth() + 1),
+					date = add0(d.getDate()),
+					hour = add0(d.getHours()),
+					minute = add0(d.getMinutes()),
+					second = add0(d.getSeconds());
+				return `${year}.${month}.${date} ${hour}:${minute}:${second}`;
+			}
+		},
+		mounted() {
+			this.updateTime = new Date().getTime();
+		}
 	}
 </script>
