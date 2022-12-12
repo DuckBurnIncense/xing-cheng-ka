@@ -1,19 +1,9 @@
-# xck
+# 高仿 "通信大数据行程卡"
 
-## Project setup
-```
-npm install
-```
+高仿 "通信大数据行程卡", 现在行程卡已经下线, 就仿个留作纪念吧 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+~~回光返照版 (误~~
 
-### Compiles and minifies for production
-```
-npm run build
-```
+开发中, 先留个截图
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](docs/1.png)
