@@ -18,6 +18,10 @@
     * {
         box-sizing: border-box;
     }
+    p {
+        margin: 0;
+        padding: 0;
+    }
     @media only screen and (min-width: 320px) and (max-width: 352px) { html { font-size: 0.4rem; } }
     @media only screen and (min-width: 352px) and (max-width: 640px) { html { font-size: 0.6rem; } }
     @media only screen and (min-width: 640px) and (max-width: 750px) { html { font-size: 0.8rem; } }
