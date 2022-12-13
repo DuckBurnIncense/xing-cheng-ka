@@ -37,8 +37,8 @@
 				&copy; 2022 DuckBurnIncense
 			</p>
 		</div>
-		<div class="bottom-ad">
-			<div class="left">一证通查来了！<br />立即点击进入</div>
+		<div class="bottom-ad" @click="$router.push('/login')">
+			<div class="left"><a href="https://getsimnum.caict.ac.cn/">一证通查来了！<br />立即点击进入</a></div>
 			<div class="right"><span class="b">全国移动电话卡“⼀证通查”</span><br />防范诈骗，保护你我</div>
 		</div>
 	</div>
@@ -210,7 +210,11 @@
 			.left {
 				text-align: left;
 				padding: 0.5em;
-				color: black;
+				
+				a {
+					color: black;
+					text-decoration: none;
+				}
 			}
 			.right {
 				padding: 0.5em 2em;
