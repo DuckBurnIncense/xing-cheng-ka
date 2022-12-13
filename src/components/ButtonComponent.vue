@@ -11,7 +11,6 @@
 		height: 2.7em;
 		font-size: 1.8em;
 		letter-spacing: 0.02em;
-		margin-top: 1.2em;
 		border-radius: 0.72em;
 		display: inline-block;
 		padding: 0 12px;

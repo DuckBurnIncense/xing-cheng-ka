@@ -2,7 +2,7 @@
 	<div class="input-component">
 		<div class="icon"><slot name="icon"></slot></div>
 		<div class="input-wrap">
-			<input class="input" :value="value" @change="setValue($event.target.value)" :placeholder="placeholder" type="text" />
+			<input class="input" :value="value" @input="setValue($event.target.value)" :placeholder="placeholder" type="text" />
 			<img class="clear-inputs-icon" @click="setValue('')" src="@/assets/clear_inputs.png" />
 		</div>
 		<div class="addon"><slot name="addon"></slot></div>
@@ -36,12 +36,12 @@
 				top: calc(50% - 1em);
 				right: 0.5em;
 				height: 2em;
-				display: none;
+				display: inline-block;
+				transition: all .2s ease;
+				visibility: hidden;
 			}
-			&:focus-within {
-				.clear-inputs-icon {
-					display: inline-block;
-				}
+			&:focus-within .clear-inputs-icon {
+				visibility: visible;
 			}
 		}
 		.addon:not(:empty) {
@@ -72,6 +72,7 @@
 		},
 		methods: {
 			setValue(value) {
+				console.log(value);
 				this.$emit('change', value);
 			}
 		}

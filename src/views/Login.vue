@@ -23,6 +23,7 @@
 			<button-component @click="submit" :disabled="!allowQueryInfo" class="submit">
 				查询
 			</button-component>
+			<p class="instruction">行程卡使用说明</p>
 		</div>
 		<div class="footer">
 			<div class="providers">
@@ -39,7 +40,6 @@
 				</p>
 			</div>
 			<p class="tels">客服热线：10000 / 10086 / 10010 / 10099</p>
-			<p class="tip">使用 “通信行程卡” 小程序或手机APP，不用每次输验证码</p>
 			<p class="note">
 				该程序仅供娱乐!!! <del>(反正行程卡已经下线了, 我这也伪造不了啥信息)</del>
 				<br />
@@ -97,8 +97,18 @@
 			}
 			.input-allow {
 				color: #94949e;
-				margin-top: 1.5em;
+				font-size: 1.8em;
+				margin-top: 0.5em;
 				margin-left: 0.4em;
+			}
+			.submit {
+			}
+			.instruction {
+				margin-top: 1em;
+				text-align: right;
+				font-size: 1.2em;
+				text-decoration: underline;
+				color: rgb(0, 122, 255);
 			}
 		}
 		.footer {
@@ -164,7 +174,7 @@
 					}
 				}
 			}
-			.tels, .tip {
+			.tels {
 				margin-bottom: 1em;
 				color: rgb(0, 122, 255);
 			}
