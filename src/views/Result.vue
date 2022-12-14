@@ -9,7 +9,7 @@
 				<p class="tel">{{phoneNumWithAsterisks}}的动态行程卡</p>
 				<p class="update-time">更新于：{{formattedUpdateTime}}</p>
 				<img class="green-card" src="@/assets/gif_green.gif" alt="green">
-				<p class="desc">
+				<p class="desc" @click="changePlaces">
 					<span class="title">您于前7天内到达或途径：</span>
 					<span class="places">{{places}}</span>
 				</p>
@@ -236,11 +236,20 @@
 		data() {
 			return {
 				updateTime: 0,
-				places: '广西壮族自治区南宁市',
-				phone: '11400005140'
 			}
 		},
 		computed: {
+			phone() {
+				return this.$store.state.phone || '11400005140';
+			},
+			places: {
+				get() {
+					return this.$store.state.places;
+				},
+				set(v) {
+					this.$store.commit('places', v);
+				}
+			},
 			phoneNumWithAsterisks() {
 				let arr = this.phone.split('');
 				const asterisk = '*';
@@ -260,6 +269,12 @@
 					minute = add0(d.getMinutes()),
 					second = add0(d.getSeconds());
 				return `${year}.${month}.${date} ${hour}:${minute}:${second}`;
+			}
+		},
+		methods: {
+			changePlaces() {
+				let newPlaces = prompt('请输入新的地点') || '哪也没去';
+				this.$store.commit('places', newPlaces);
 			}
 		},
 		mounted() {

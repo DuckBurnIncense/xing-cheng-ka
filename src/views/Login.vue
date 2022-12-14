@@ -9,7 +9,11 @@
 					<img class="icon" src="@/assets/phone_icon.png" alt="icon" />
 				</template>
 				<template v-slot:addon>
-					<button class="get-verify-code" disabled>获取验证码</button>
+					<button
+						class="get-verify-code"
+						:disabled="!phoneLegel"
+						@click="verifyCode = '114514'"
+					>获取验证码</button>
 				</template>
 			</input-component>
 			<input-component v-model="verifyCode" class="input input-verify-code" placeholder="请输入验证码">
@@ -20,7 +24,7 @@
 			<checkbox-component v-model="allowQueryInfo" class="input-allow">
 				同意并授权运营商查询本人在疫情期间7天内到访地信息
 			</checkbox-component>
-			<button-component @click="submit" :disabled="!allowQueryInfo" class="submit">
+			<button-component @click="submit" :disabled="!allowQueryInfo || !phoneLegel" class="submit">
 				查询
 			</button-component>
 			<p class="instruction">行程卡使用说明</p>
@@ -206,8 +210,14 @@
 				allowQueryInfo: false
 			}
 		},
+		computed: {
+			phoneLegel() {
+				return this.phone * 1 >= 10000000000 && this.phone * 1 <= 20000000000;
+			}
+		},
 		methods: {
 			submit() {
+				this.$store.commit('phone', this.phone);
 				this.$router.push('/result');
 			}
 		}
