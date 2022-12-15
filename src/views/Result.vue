@@ -10,7 +10,7 @@
 				<p class="update-time">更新于：{{formattedUpdateTime}}</p>
 				<img class="green-card" src="@/assets/gif_green.gif" alt="green">
 				<p class="desc" @click="changePlaces">
-					<span class="title">您于前7天内到达或途径：</span>
+					<span class="title">您于前7天内到达或途经：</span>
 					<span class="places">{{places}}</span>
 				</p>
 			</div>
