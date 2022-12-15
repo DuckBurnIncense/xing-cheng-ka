@@ -31,7 +31,7 @@
 
 <script>
 	export default {
-		name: 'ButtonComponent',
+		name: 'ButtonC',
 		props: {
 			disabled: {
 				type: Boolean,

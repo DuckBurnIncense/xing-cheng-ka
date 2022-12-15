@@ -52,7 +52,7 @@
 
 <script>
 	export default {
-		name: 'InputComponent',
+		name: 'InputC',
 		model: {
 			prop: 'value',
 			event: 'change'
@@ -72,7 +72,6 @@
 		},
 		methods: {
 			setValue(value) {
-				console.log(value);
 				this.$emit('change', value);
 			}
 		}
