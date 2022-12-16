@@ -38,7 +38,7 @@
 			</p>
 		</div>
 		<div class="bottom-ad" @click="$router.push('/login')">
-			<div class="left"><a href="https://getsimnum.caict.ac.cn/">一证通查来了！<br />立即点击进入</a></div>
+			<div class="left"><a href="https://getsimnum.caict.ac.cn/"><span class="b">一证通查来了！</span><br />立即点击进入</a></div>
 			<div class="right"><span class="b">全国移动电话卡“⼀证通查”</span><br />防范诈骗，保护你我</div>
 		</div>
 	</div>
@@ -105,6 +105,7 @@
 					font-family: '黑体';
 					font-size: 1.7em;
 					padding-top: 0.5em;
+					text-align: left;
 
 					.title {
 						color: #95959f;
@@ -197,7 +198,7 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
-			padding: 1em 2em;
+			padding: 0.4em 2em;
 			background-color: white;
 			font-size: 1.2em;
 			// 绝对定位到底部
@@ -206,7 +207,10 @@
 			right: 0;
 			bottom: 0;
 			z-index: 50;
-
+			
+			.b {
+				font-weight: 700;
+			}
 			.left {
 				text-align: left;
 				padding: 0.5em;
@@ -221,10 +225,6 @@
 				background-color: black;
 				color: white;
 				border-radius: 0.5em;
-
-				.b {
-					font-weight: 700;
-				}
 			}
 		}
 	}
